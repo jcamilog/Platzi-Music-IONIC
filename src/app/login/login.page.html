@@ -1,0 +1,26 @@
+
+<ion-content>
+
+  <figure class="ion-text-center ion-padding">
+    <img src="./../../assets/logo/logo.png" alt="Platzi Logo">
+  </figure>
+<form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+  <ion-item>
+    <ion-label>Email</ion-label>
+    <ion-input type="email" formControlName="email"></ion-input>
+  </ion-item>
+  <div class="validation-error">
+    <ion-content *ngFor="let validation of validationsMessages.email">
+      {{validation?.message}}
+    </ion-content>
+  </div>
+  <ion-item>
+    <ion-label>Password</ion-label>
+    <ion-input type="password" formControlName="password"></ion-input>
+  </ion-item>
+  <ion-button expand="full" shape="round" color="success" type="submit">Login</ion-button>
+</form>
+</ion-content>
+<ion-footer>
+  <ion-button expand="full" shape="round" fill="outline" color="success" (click)="goToRegister()">Click para registro</ion-button>
+</ion-footer>

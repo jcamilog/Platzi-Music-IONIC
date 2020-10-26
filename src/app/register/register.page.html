@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button expand="full" shape="round" fill="outline" color="success" (click)="goToLogin()">Ir al login</ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <figure class="ion-text-center ion-padding">
+    <img src="./../../assets/logo/logo.png" alt="Platzi Logo">
+  </figure>
+<form [formGroup]="registerForm" (ngSubmit)="RegisterUser(registerForm.value)">
+  <ion-item>
+    <ion-label>Email</ion-label>
+    <ion-input type="email" formControlName="email"></ion-input>
+  </ion-item>
+  <div class="validation-error">
+    <ion-content *ngFor="let validation of validationsMessages.email">
+      {{validation?.message}}
+    </ion-content>
+  </div>
+  <ion-item>
+    <ion-label>Password</ion-label>
+    <ion-input type="password" formControlName="password"></ion-input>
+  </ion-item>
+  <ion-button expand="full" shape="round" color="success" type="submit">Register</ion-button>
+</form>
+</ion-content>
